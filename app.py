@@ -78,9 +78,9 @@ if st.button('루틴 생성'):
         title_parts = [f"{part}({count}개)" for part, count in day_plan.items()]
         title = f"Day {i+1}: {', '.join(title_parts)}"
         
-        파일내용 += f"** {day_title} **\n"
+        파일내용 += f"** {title} **\n"
 
-        with st.expander(f"**{day_title}**", expanded=(i==0)):
+        with st.expander(f"**{title}**", expanded=(i==0)):
             for part, count in day_plan.items():
                 뽑을개수 = min(count, len(운동목록[part]))
                 추천운동 = random.sample(운동목록[part], 뽑을개수)
@@ -99,4 +99,5 @@ if st.button('루틴 생성'):
        file_name=f"주{운동횟수}일_운동루틴.txt",
        mime='text/plain',
     )
+
 
